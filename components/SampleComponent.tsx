@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
-import { observer } from 'mobx-react-lite'
 import Link from 'next/link'
+import { observer } from 'mobx-react-lite'
+import { StyledEngineProvider } from '@mui/material/styles';
 import { IStore, useStore } from '../store'
+import { Layout } from './Layout';
 import Clock from './Clock'
+
 
 interface IOwnProps {
   store?: IStore
@@ -29,6 +32,10 @@ const SampleComponent: React.FC<IOwnProps> = observer((props) => {
           <a>Navigate</a>
         </Link>
       </nav>
+      <StyledEngineProvider injectFirst>
+        <Layout />
+      </StyledEngineProvider>
+
     </div>
   )
 })
