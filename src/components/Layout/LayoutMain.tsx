@@ -9,6 +9,7 @@ import {
     VideoCameraOutlined,
 } from '@ant-design/icons';
 import style from "./LayoutMain.module.css";
+import { SnusList } from '../UI/SnusList/SnusList';
 
 const { Header, Sider, Content } = Layout;
 
@@ -74,9 +75,8 @@ export const LayoutMain: React.FC = () => {
                             minHeight: 280,
                         }}
                     >
-                        Content
                         <Routes>
-                            <Route path="/"/>
+                            <Route path="/" element={<SnusList/>}/>
                         </Routes>
                     </Content>
                 </Layout>

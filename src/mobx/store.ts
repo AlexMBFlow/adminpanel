@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
 
-
 interface ISnus {
     name: string;
     taste: string;
@@ -28,18 +27,38 @@ interface IOrder {
     info: IUserInfo[];
 }
 
+interface ISnusListItem {
+    name?: string;
+    taste?: string;
+    packs?: number;
+    nicotine?: number;
+    saturation?: string;
+    price?: number;
+    avatar?: string;
+    rate?: number;
+}
+
 interface IStore {
     orderList: IOrder[];
+    snusList: ISnusListItem[]
 }
 
 class Store implements IStore {
-    public orderList = [];
+    public orderList: IOrder[] | never[] = [];
+    public snusList: ISnusListItem[] | never[] = [];
+
+    boba = 1
+
     constructor() {
         makeAutoObservable(this);
     }
 
-    setOrders = (orders: never[]): void => {
+    setOrders = (orders: IOrder[]): void => {
         this.orderList = orders;
+    }
+
+    setSnusStore = (store: ISnusListItem[]): void => {
+        this.snusList = store;
     }
 }
 
