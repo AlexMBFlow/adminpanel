@@ -9,6 +9,7 @@ interface IResponseItem {
     price: number;
     avatar: string;
     rate: number;
+    _id: string;
 }
 
 export const getStore = async (): Promise<IResponseItem[]> => {

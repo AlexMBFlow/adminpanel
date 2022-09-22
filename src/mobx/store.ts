@@ -9,6 +9,7 @@ interface ISnus {
     price: number;
     avatar: string;
     rate: number;
+    _id: string
 }
 
 interface IUserInfo {
@@ -22,11 +23,6 @@ interface IUserInfo {
     someInfo: string;
 }
 
-interface IOrder {
-    basket: ISnus[];
-    info: IUserInfo[];
-}
-
 interface ISnusListItem {
     name: string;
     taste: string;
@@ -36,6 +32,12 @@ interface ISnusListItem {
     price: number;
     avatar: string;
     rate: number;
+    _id: string;
+}
+
+interface IOrder {
+    basket: ISnusListItem[];
+    info: IUserInfo[];
 }
 
 interface IStore {
@@ -45,8 +47,8 @@ interface IStore {
 }
 
 class Store implements IStore {
-    public orderList: IOrder[] | never[] = [];
-    public snusList: ISnusListItem[] | never[] = [];
+    public orderList: IOrder[] = [];
+    public snusList: ISnusListItem[] = [];
     public isStoreLoading: boolean = true;
 
 
@@ -64,6 +66,11 @@ class Store implements IStore {
 
     public setStoreLoading = (isLoading: boolean): void => {
         this.isStoreLoading = isLoading;
+    }
+
+    public setResultAfterEditing = (snus: ISnus): void => {
+        let index = this.snusList.findIndex(element => element._id === snus._id ? true : false);
+        this.snusList[index] = snus;
     }
 }
 

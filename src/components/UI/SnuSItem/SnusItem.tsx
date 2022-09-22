@@ -13,6 +13,7 @@ interface ISnusItem {
         price: number;
         avatar: string;
         rate: number;
+        _id: string;
     }
 }
 
