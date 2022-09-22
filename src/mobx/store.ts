@@ -28,37 +28,42 @@ interface IOrder {
 }
 
 interface ISnusListItem {
-    name?: string;
-    taste?: string;
-    packs?: number;
-    nicotine?: number;
-    saturation?: string;
-    price?: number;
-    avatar?: string;
-    rate?: number;
+    name: string;
+    taste: string;
+    packs: number;
+    nicotine: number;
+    saturation: string;
+    price: number;
+    avatar: string;
+    rate: number;
 }
 
 interface IStore {
     orderList: IOrder[];
-    snusList: ISnusListItem[]
+    snusList: ISnusListItem[];
+    isStoreLoading: boolean;
 }
 
 class Store implements IStore {
     public orderList: IOrder[] | never[] = [];
     public snusList: ISnusListItem[] | never[] = [];
+    public isStoreLoading: boolean = true;
 
-    boba = 1
 
     constructor() {
         makeAutoObservable(this);
     }
 
-    setOrders = (orders: IOrder[]): void => {
+    public setOrders = (orders: IOrder[]): void => {
         this.orderList = orders;
     }
 
-    setSnusStore = (store: ISnusListItem[]): void => {
+    public setSnusStore = (store: ISnusListItem[]): void => {
         this.snusList = store;
+    }
+
+    public setStoreLoading = (isLoading: boolean): void => {
+        this.isStoreLoading = isLoading;
     }
 }
 

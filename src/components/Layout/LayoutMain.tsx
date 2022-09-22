@@ -1,21 +1,20 @@
-import React from "react";
-import { Route, Routes, Link, useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
     UploadOutlined,
     UserOutlined,
-    VideoCameraOutlined,
+    VideoCameraOutlined
 } from '@ant-design/icons';
 import style from "./LayoutMain.module.css";
-//import { SnusList } from '../UI/SnusList/SnusList';
 import { Store } from '../../Page/Store/Store';
-
 const { Header, Sider, Content } = Layout;
 
 export const LayoutMain: React.FC = () => {
     const navigate = useNavigate();
+    useEffect(() => {
+        navigate("/")
+    }, [])
     
     return (
         <>
@@ -77,7 +76,7 @@ export const LayoutMain: React.FC = () => {
                         }}
                     >
                         <Routes>
-                            <Route path="/" element={<Store/>}/>
+                            <Route path="/" element={<Store />} />
                         </Routes>
                     </Content>
                 </Layout>

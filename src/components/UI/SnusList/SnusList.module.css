@@ -1,0 +1,6 @@
+.snus_list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    min-height: 100vh
+}
