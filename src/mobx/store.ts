@@ -44,13 +44,15 @@ interface IStore {
     orderList: IOrder[];
     snusList: ISnusListItem[];
     isStoreLoading: boolean;
+    inputFilterValue: string;
 }
 
 class Store implements IStore {
     public orderList: IOrder[] = [];
     public snusList: ISnusListItem[] = [];
+    //public snusListFiltered: ISnusListItem[] = []
     public isStoreLoading: boolean = true;
-
+    public inputFilterValue: string = "";
 
     constructor() {
         makeAutoObservable(this);
@@ -71,6 +73,24 @@ class Store implements IStore {
     public setResultAfterEditing = (snus: ISnus): void => {
         let index = this.snusList.findIndex(element => element._id === snus._id ? true : false);
         this.snusList[index] = snus;
+    }
+
+    public filteredStore = (): ISnusListItem[] => {
+        const filteredArray = this.snusList.filter(el => {
+            let regExp = new RegExp(this.inputFilterValue, "gi");
+            //debugger
+            if (!!this.inputFilterValue) {
+                return regExp.test(el.name) || regExp.test(el.taste)
+            } else {
+                return true
+            }
+        })
+        return filteredArray
+    }
+
+    public setFilterValue = (value: string): void => {
+        this.inputFilterValue = value;
+        //this.filteredStore()
     }
 }
 

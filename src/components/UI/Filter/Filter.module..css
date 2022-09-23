@@ -1,0 +1,55 @@
+.snus_item {
+    display: flex;
+    width: 33%;
+    min-height: 280px;
+    justify-content: center;
+    padding-top: 3.8rem;
+
+}
+
+.snus_avatar_img {
+    max-width:100%;
+    padding-top: 3rem;
+    transition: 1s;
+    user-select: none;
+}
+
+.snus_item__title {
+    padding-top: 1.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.description_center {
+    text-align: center;
+}
+
+.snus_item__taste {
+    color: #5B646F;
+    font-weight: bolder;
+    font-size: 0.9rem;
+}
+
+.snus_item__info {
+    padding-top: 0.5rem ;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gray {
+    font-weight: bolder;
+    color: #5E6772;
+}
+
+.snus_item__price {
+    font-size: 16px !important;
+    text-align: center;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    font-weight: bolder;
+}
+
+.snus_item__buy_inner {
+    display: flex;
+    justify-content: center;
+}

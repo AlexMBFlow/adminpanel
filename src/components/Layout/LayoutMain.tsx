@@ -13,7 +13,7 @@ const { Header, Sider, Content } = Layout;
 export const LayoutMain: React.FC = () => {
     const navigate = useNavigate();
     useEffect(() => {
-        navigate("/")
+        navigate("/");
     }, [])
     
     return (
@@ -54,7 +54,7 @@ export const LayoutMain: React.FC = () => {
                                 icon: <UploadOutlined />,
                                 label: 'Добавить товар',
                                 onClick: () => navigate("/add")
-                            },
+                            }
                         ]}
                     />
                 </Sider>

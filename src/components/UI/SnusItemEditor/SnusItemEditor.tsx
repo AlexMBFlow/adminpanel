@@ -40,7 +40,7 @@ export const SnusItemEditor: React.FC<ISnusItem> = ({ snusProps }) => {
     const [nicotineEdit, setNicotineEdit] = useState<number>(nicotine);
     const [priceEdit, setPriceEdit] = useState<number>(price);
     const [packsEdit, setPacksEdit] = useState<number>(packs);
-    const [avatarEdit, setavatarEdit] = useState<string>(avatar); // TODO
+    const [avatarEdit, setAvatarEdit] = useState<string>(avatar); // TODO
     const nicotineEditHandler = (e: number | null) => {
         if (e) {
             setNicotineEdit(e);
@@ -88,8 +88,6 @@ export const SnusItemEditor: React.FC<ISnusItem> = ({ snusProps }) => {
             _id
         }
 
-
-
         setConfirmLoading(true);
         //console.log(result);
         sendEdit(result).then(res => {
@@ -106,10 +104,6 @@ export const SnusItemEditor: React.FC<ISnusItem> = ({ snusProps }) => {
                 })
             }
         });
-        /*         setTimeout(() => {
-                    setOpen(false);
-                    setConfirmLoading(false);
-                }, 2000); */
     };
 
     const handleCancel = () => {
