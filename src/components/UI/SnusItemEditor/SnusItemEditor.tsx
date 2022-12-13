@@ -143,10 +143,10 @@ export const SnusItemEditor: React.FC<ISnusItem> = ({ snusProps }) => {
                     </Item>
                     <Item label="Насыщенность">
                         <Select value={saturationEdit} onChange={(e) => setSaturationEdit(e)}>
-                            <Option value="test1">Легкий</Option>
-                            <Option value="test2">Средний</Option>
-                            <Option value="test3">Крепкий</Option>
-                            <Option value="test4">Очень крепкий</Option>
+                            <Option value="Легкий">Легкий</Option>
+                            <Option value="Средний">Средний</Option>
+                            <Option value="Крепкий">Крепкий</Option>
+                            <Option value="Очень крепкий">Очень крепкий</Option>
                         </Select>
                     </Item>
                     <Item label="Кол-во мг">
